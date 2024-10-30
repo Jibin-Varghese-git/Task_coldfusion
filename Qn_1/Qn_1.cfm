@@ -1,20 +1,26 @@
 <html>
     <head>
     <title>>Questiion-1</title>
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     </head>
-    <body>
-        <form method="post">
-            <label>Enter number (1-5)</label><br>
-            <input  name="num">
-            <input type="submit">
+    <body class="p-5">
+        <form method="post" class="p-3">
+            <div class="border border-success d-flex flex-column justify-content-between align-items-center p-3">
+                <label class="text-success">Enter number (1-5)</label><br>
+                <input  name="num">
+                <input type="submit" class="btn bg-black text-white m-2">
+            </div>
         </form>
-        <cfoutput>
-            <cfif structKeyExists(form,"num")>  
-                <cfset local.num = form.num>
-                <cfset local.value = createObject("component","components.check")>
-                <cfset local.res = local.value.fnCheck(local.num) >
-                #local.res#
-            </cfif>
-        </cfoutput>
+        <div class="border border-danger d-flex ">
+            <h2>RESULTS:</h2>
+            <cfoutput>
+                <cfif structKeyExists(form,"num")>  
+                    <cfset local.num = form.num>
+                    <cfset local.value = createObject("component","components.check")>
+                    <cfset local.res = local.value.fnCheck(local.num) >
+                    <div class="m-2">#local.res# </div>
+                </cfif>
+            </cfoutput>
+        </div>
     </body>
 </html>

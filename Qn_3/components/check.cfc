@@ -1,20 +1,20 @@
 <cfcomponent>
     <cffunction  name="fnCheck" returnType="any">
-        <cfargument name="arr" type="any" required="true">
-        <cfset local.val=arguments.arr>
-        arr1=arrayNew(10);
-        <cfloop array="#myArray#" index="idx">
-            
-            <cfif #idx# % 3 EQ 0>
-                toAppend=ArrayAppend(arr1,11,true)
+        <cfargument name="num" type="any" required="true">
+        <cfset local.val=arguments.num>
+        <cfset result ="">
+        <cfloop list="#val#" index="name"> 
+            <cfif #name# % 3 != 0>
+                <cfcontinue>
             </cfif> 
-            
-        <cfreturn local.arr1>
+            <cfset result=listAppend(result, #name#,",")>
+        </cfloop>
+        <cfreturn #result#>
     </cffunction>
 </cfcomponent>
 
 
 
-
+ 
 
 
