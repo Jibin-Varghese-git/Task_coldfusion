@@ -1,7 +1,7 @@
 <cfapplication name="app" sessionmanagement="Yes">
 <html>
     <head>
-    <title>>Questiion-9</title>
+    <title>>Questiion-10</title>
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     </head>
     <body class="p-5">
@@ -22,7 +22,7 @@
                     <cfif structKeyExists(form,"key") && structKeyExists(form,"value")>  
                         <cfset key = form.key>
                         <cfset value = form.value>
-                        <cfset newObject = createObject("component", "components.check_9")>
+                        <cfset newObject = createObject("component", "components.check_10")>
                         <cfset result = newObject.fnCheck(key,value)>
 <!---                         <cfdump  var="#result#">                     --->
                     </cfif>

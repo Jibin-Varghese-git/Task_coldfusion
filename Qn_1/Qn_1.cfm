@@ -16,7 +16,7 @@
             <cfoutput>
                 <cfif structKeyExists(form,"num")>  
                     <cfset local.num = form.num>
-                    <cfset local.value = createObject("component","components.check")>
+                    <cfset local.value = createObject("component","components.check_1")>
                     <cfset local.res = local.value.fnCheck(local.num) >
                     <div class="m-2">#local.res# </div>
                 </cfif>

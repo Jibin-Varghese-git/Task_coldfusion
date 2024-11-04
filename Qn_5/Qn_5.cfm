@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Qn 5</title>
+<title>Question 5</title>
 <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
 </head>
 <body class = "w-100" >
@@ -16,7 +16,7 @@
         </div>
         <cfif isDefined("form.dobYou") && isDefined("form.dobMother")>
             <cfoutput>
-                <cfset newObject = createObject("component", "components.check")>
+                <cfset newObject = createObject("component", "components.check_5")>
                 <cfset result = newObject.fnCheck(form.dobYou,form.dobMother)>
                 <div>
                     <span>Your Age </span><span> #result[1]#</span>

@@ -1,6 +1,6 @@
 <html>
     <head>
-    <title>>Questiion-1</title>
+    <title>>Questiion-3</title>
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     </head>
     <body class="p-5">
@@ -16,7 +16,7 @@
             <cfoutput>
                 <cfif structKeyExists(form,"num")>  
                     <cfset local.num = form.num>
-                    <cfset local.value = createObject("component","components.check")>
+                    <cfset local.value = createObject("component","components.check_3")>
                     <cfset local.res = local.value.fnCheck(local.num) >
                     <div class="m-2">#local.res# </div>
                 </cfif>

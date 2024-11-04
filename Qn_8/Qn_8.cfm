@@ -22,7 +22,7 @@
                     <cfif structKeyExists(form,"key") && structKeyExists(form,"value")>  
                         <cfset key = form.key>
                         <cfset value = form.value>
-                        <cfset newObject = createObject("component", "components.check")>
+                        <cfset newObject = createObject("component", "components.check_8")>
                         <cfset result = newObject.fnCheck(key,value)>
 <!---                         <cfdump  var="#result#">                     --->
                     </cfif>
