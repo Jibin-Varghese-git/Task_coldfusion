@@ -1,11 +1,11 @@
 <cfcomponent>
-    <cffunction  name="multiply" returnType="any">
-        <cfargument name="myList" type="any" required="true">
-        <cfset val=arguments.myList>
-        <cfset mul = 1>
-        <cfloop list="#val#" index="name"> 
-            <cfset mul = mul*name>
+    <cffunction  name="multiply" returnType="string">
+        <cfargument name="myList" type="string  " required="true">
+        <cfset local.myList = arguments.myList>
+        <cfset local.mulAnswer = 1>
+        <cfloop list = "#local.myList#" index = "name"> 
+            <cfset local.mulAnswer = local.mulAnswer * name>
         </cfloop>
-        <cfreturn mul>
+        <cfreturn local.mulAnswer>
     </cffunction>
 </cfcomponent>

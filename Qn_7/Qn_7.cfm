@@ -17,14 +17,13 @@
         <div class="border border-danger d-flex justify-content-around">
             <h2>RESULTS:</h2>
             <div class= p-2>
-                
                 <cfoutput>
                     <cfif structKeyExists(form,"key") && structKeyExists(form,"value")>  
-                        <cfset key = form.key>
-                        <cfset value = form.value>
-                        <cfset newObject = createObject("component", "components.check_7")>
-                        <cfset result = newObject.fnCheck(key,value)>
-<!---                         <cfdump  var="#result#">                     --->
+                        <cfset local.key = form.key>
+                        <cfset local.value = form.value>
+                        <cfset local.newObject = createObject("component", "components.check_7")>
+                        <cfset local.result = local.newObject.fnCheck(local.key,local.value)>
+                        <cfdump  var="#local.result#">                   
                     </cfif>
                 </cfoutput>
             </div>

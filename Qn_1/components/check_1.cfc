@@ -1,6 +1,6 @@
 <cfcomponent>
-    <cffunction  name="fnCheck" returnType="any">
-    <cfargument name="num" type="any" required="true">
+    <cffunction  name="fnCheck" returnType="string">
+    <cfargument name="num" type="numeric" required="true">
     <cfset local.val=arguments.num>
         <cfif local.val EQ 5>
             <cfset result="Very Good">

@@ -1,6 +1,6 @@
 <cfcomponent>
-    <cffunction  name="fnCheck" returnType="any">
-        <cfargument name="num" type="any" required="true">
+    <cffunction  name="fnCheck" returnType="string">
+        <cfargument name="numeric" type="numeric" required="true">
         <cfset local.val=arguments.num>
         <cfswitch expression=#local.val#> 
             <cfcase value="1">

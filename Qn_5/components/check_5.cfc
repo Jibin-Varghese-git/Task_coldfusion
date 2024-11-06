@@ -1,25 +1,26 @@
 <cfcomponent>
-    <cffunction  name="fnCheck" returnType="any">
-        <cfargument name="dobYour" type="any" required="true">
-        <cfargument name="dobMother" type="any" required="true">
+    <cffunction  name="fnCheck" returnType="array">
+        <cfargument name="dobYour" type="date" required="true">
+        <cfargument name="dobMother" type="date" required="true">
         <cfset local.dobYour=arguments.dobYour>
         <cfset local.dobMother=arguments.dobMother>
-        <cfset ageYour = DateDiff('yyyy', dobyour, now())>
-        <cfset agemother = DateDiff('yyyy', dobmother, now())>
-        <cfset nextBirthdayYou = dobYour.setYear(year(now()))>
-        <cfset remainingDayYour = dayOfYear(nextBirthdayYou) - dayOfYear(now())>
-        <cfif remainingDayYour LT 0>
-            <cfset remainingDayYour=(365+remainingDayYour)>    
+        <cfset local.ageYour = DateDiff('yyyy', local.dobyour, now())>
+        <cfset local.agemother = DateDiff('yyyy', local.dobmother, now())>
+        <cfset local.nextBirthdayYou = local.dobYour.setYear(year(now()))>
+        <cfset local.remainingDayYour = dayOfYear(local.nextBirthdayYou) - dayOfYear(now())>
+        <cfif local.remainingDayYour LT 0>
+            <cfset local.remainingDayYour=(365+local.remainingDayYour)>    
         </cfif>
-        <cfset nextBirthdayMother = dobMother.setYear(year(now()))>
-        <cfset remainingDayMother = dayOfYear(nextBirthdayMother) - dayOfYear(now())>
-        <cfif remainingDayMother LT 0>
-            <cfset remainingDayMother=(365+remainingDayMother)>    
+        <cfset local.nextBirthdayMother = local.dobMother.setYear(year(now()))>
+        <cfset local.remainingDayMother = dayOfYear(local.nextBirthdayMother) - dayOfYear(now())>
+        <cfif local.remainingDayMother LT 0>
+            <cfset local.remainingDayMother=(365+local.remainingDayMother)>    
         </cfif>
-        <cfset result[1] = ageYour>
-        <cfset result[2] = agemother-ageYour>
-        <cfset result[3] = remainingDayYour>
-        <cfset result[4] = remainingDayMother>
+        <cfset local.result = []>
+        <cfset arrayAppend(local.result, local.ageYour) >
+        <cfset arrayAppend(local.result,  local.agemother-local.ageYour)>
+        <cfset arrayAppend(local.result,  local.remainingDayYour)>
+        <cfset arrayAppend(local.result,  local.remainingDayMother)>
         <cfreturn result>
     </cffunction>
 </cfcomponent>

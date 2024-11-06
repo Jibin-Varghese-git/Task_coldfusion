@@ -20,12 +20,12 @@
                 
                 <cfoutput>
                     <cfif structKeyExists(form,"key") && structKeyExists(form,"value")>  
-                        <cfset key = form.key>
-                        <cfset value = form.value>
-                        <cfset newObject = createObject("component", "components.check_8")>
-                        <cfset result = newObject.fnCheck(key,value)>
-<!---                         <cfdump  var="#result#">                     --->
-                    </cfif>
+                        <cfset local.key = form.key>
+                        <cfset local.value = form.value>
+                        <cfset local.newObject = createObject("component", "components.check_8")>
+                        <cfset local.result = local.newObject.fnCheck(local.key,local.value)>
+                        <cfdump  var="#local.result#"> 
+                    </cfif>                    
                 </cfoutput>
             </div>
         </div>
