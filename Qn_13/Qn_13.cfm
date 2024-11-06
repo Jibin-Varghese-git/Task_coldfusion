@@ -18,13 +18,13 @@
                 
                 <cfoutput>
                     <cfif structKeyExists(form,"subString") >  
-                        <cfset myString ="the quick brown fox jumps over the lazy dog" >
-                        <cfset subString = form.subString>
-                        <cfset newObject = createObject("component", "components.check_13")>
-                        <cfset result = newObject.fnCheck(subString,myString)>
-                        <cfdump  var="Occurence of #subString# is #result#"><br> 
-                        <cfloop list="#myString#" index="i" delimiters=" ">
-                            <cfif compareNoCase(i, subString)>
+                        <cfset local.myString ="the quick brown fox jumps over the lazy dog" >
+                        <cfset local.subString = form.subString>
+                        <cfset local.newObject = createObject("component", "components.check_13")>
+                        <cfset local.result = local.newObject.fnCheck(local.subString,local.myString)>
+                        <cfdump  var="Occurence of #local.subString# is #local.result#"><br> 
+                        <cfloop list="#local.myString#" index="i" delimiters=" ">
+                            <cfif compareNoCase(i, local.subString)>
                                 <span >#i#</span>
                             <cfelse>
                                 <span class="fw-bold">#i#</span>

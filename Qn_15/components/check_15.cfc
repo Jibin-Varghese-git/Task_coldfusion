@@ -1,10 +1,10 @@
 <cfcomponent>
-    <cffunction  name="multiply" returnType="any">
-        <cfset val=arguments>
-        <cfset mul = 1>
-        <cfloop array="#val#" index="name"> 
-            <cfset mul = mul*name>
+    <cffunction  name="multiply" returnType="string">
+        <cfset local.value=arguments>
+        <cfset local.mulAnswer = 1>
+        <cfloop array="#local.value#" index="name"> 
+            <cfset local.mulAnswer = local.mulAnswer*name>
         </cfloop>
-        <cfreturn mul>
+        <cfreturn local.mulAnswer>
     </cffunction>
 </cfcomponent>

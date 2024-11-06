@@ -18,7 +18,7 @@
                     <cfset local.num = form.num>
                     <cfset local.value = createObject("component","components.check_2")>
                     <cfset local.res = local.value.fnCheck(local.num) >
-                    <div class="m-2">#local.res# </div>
+                    <div class="m-2">#local.res#</div>
                 </cfif>
             </cfoutput>
         </div>

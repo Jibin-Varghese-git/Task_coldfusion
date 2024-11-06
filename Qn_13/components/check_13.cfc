@@ -1,10 +1,10 @@
 <cfcomponent>
-    <cffunction  name="fnCheck" returnType="any">
-        <cfargument name="subString" type="any" required="true">
-        <cfargument name="myString" type="any" required="true">
-        <cfset subString=arguments.subString>
-        <cfset myString=arguments.myString>
-        <cfset result = listValueCount(myString,subString," ")>
-        <cfreturn result>
+    <cffunction  name="fnCheck" returnType="string">
+        <cfargument name="subString" type="string" required="true">
+        <cfargument name="myString" type="string" required="true">
+        <cfset local.subString=arguments.subString>
+        <cfset local.myString=arguments.myString>
+        <cfset local.result = listValueCount(local.myString,local.subString," ")>
+        <cfreturn local.result>
     </cffunction>
 </cfcomponent>

@@ -1,15 +1,15 @@
 <cfcomponent>
     <cffunction  name="fnCheck" returnType="any">
         <cfargument  name="num">
-        <cfset num = arguments.num>
-        <cfset myStruct = structNew()>
+        <cfset local.num = arguments.num>
+        <cfset local.myStruct = structNew()>
         <cfloop  index="i" from="1" to="#num#">
             <cfif i % 2==0>
-                <cfset myStruct[i] = "green">
+                <cfset local.myStruct[i] = "green">
              <cfelse>
-                <cfset myStruct[i] = "blue">    
+                <cfset local.myStruct[i] = "blue">    
             </cfif>
         </cfloop>
-        <cfreturn myStruct>
+        <cfreturn local.myStruct>
     </cffunction>
 </cfcomponent>
