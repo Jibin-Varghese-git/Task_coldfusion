@@ -18,16 +18,17 @@
                 <h2>RESULTS:</h2>
                 <cfif structKeyExists(form,"submit")>
                     <cffile  action="upload" destination="C:\ColdFusion2021\cfusion\wwwroot\Tasks\Assets\Images" fileField = "form.imgUpload" allowedextensions=".png, .gif , .png ,.jpg" nameconflict="MakeUnique">
-                    <cfif cffile.filesize lt 1000>
-                        <cfdump  var="Error! Upload image with size greatre than 1 MB">
-                    </cfif>
                     <cfset local.newObject = createObject("component", "components.check_14")>
                     <cfset local.result = local.newObject.fnCheck(form.imgName,form.imgDescription,form.imgUpload)>
-                    <div class="p-3 ">
+                    <div class="p-3">
+                    <cfif local.result["error"] eq 0>
+                       <span class="fw-bold"><cfdump  var="Size should not exceed 1MB"></span>
+                    <cfelse>
                         <a href="./imageShow.cfm" class="d-flex">
                             <div class="border border-success h-100 me-3"><cfimage action="writeToBrowser" source="#local.result["imgUpload"]#" width="20" height="20"></div>
                             <span class="fw-bold"><cfdump  var="#imgName#"></span>
                         </a>
+                    </cfif>
                     </div>
                    <cfset session.objImage = local.result>
                 </cfif>
