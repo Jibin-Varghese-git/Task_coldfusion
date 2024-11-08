@@ -15,14 +15,19 @@
                     <textarea name="bdayDescription" class = "mb-2"></textarea>
                     <label class="text-success">Greeting card Upload</label><br>
                     <input name="imgUpload" type="file">
-                    <input type="submit" class="btn bg-black text-white m-2" name = "submit">
+                    <input type="submit" class="btn bg-black text-white m-2" name="submit">
                 </div>
             </form>
             <div class="border border-danger p-2">
                 <h2>RESULTS:</h2>
-                <cfif structKeyExists(form , "submit ")>
-                    <cfset local.newObject = createObject("component", "components.chack_21")>
-                    <cfset local.result = local.newObject.fnCheck(form.personName , form.personMail , form.personMail , form.bdayDescription , form.imgUpload)>
+                <cfif structKeyExists(form , "submit")>
+                    <cfset local.structBday[personName] = form.personName>
+                    <cfset local.structBday[personMail] = form.personMail>
+                    <cfset local.structBday[bdayDescription] = form.bdayDescription>
+                    <cfset local.structBday[imgUpload] = form.imgUpload>
+                    <cfset local.newObject = createObject("component", "components.check_21")>
+                    <cfset local.result = local.newObject.fnCheck(local.structBday)>
+                    <span class="text-warning"> <cfdump  var="#local.result#"></span>
                 </cfif>
             </div>
         </cfoutput>
