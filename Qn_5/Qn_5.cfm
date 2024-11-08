@@ -1,7 +1,7 @@
 <html>
 <head>
-<title>Question 5</title>
-<link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <title>Question 5</title>
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
 </head>
 <body class = "w-100" >
     <cfoutput>
