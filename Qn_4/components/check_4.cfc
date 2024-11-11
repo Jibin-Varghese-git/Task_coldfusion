@@ -23,6 +23,5 @@
              <cfdump  var="#arr[i]#"><br>
              <cfset diff++>
         </cfloop>
-       
     </cffunction>
 </cfcomponent>
