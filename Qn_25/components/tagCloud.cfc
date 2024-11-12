@@ -1,5 +1,5 @@
 <cfcomponent>
-    <cffunction  name="addTextDB" returntype="struct">
+    <cffunction  name="addTextDB" returntype="string">
         <cfargument  name="textInput" type="string" required="true">
         <cfset local.myStruct = structNew()>
         <cfloop list="#arguments.textInput#" item="item" delimiters=" .">
@@ -18,9 +18,10 @@
                     </cfquery>
                 </cfif>
         </cfloop>
-       <cfreturn local.myStruct>
+        <cfset local.result = "Data addedd">
+       <cfreturn local.result>
     </cffunction>
-
+<!--- Task-2 Fucnction --->
    <cffunction  name="showWords" returntype="any">
         <cfargument  name="textInput" type="string" required="true">
         <cfset local.myStruct = structNew()>
@@ -32,14 +33,14 @@
             <cfset  local.myStruct[#item#]= local.myStruct[#item#] + 1>
         </cfloop>
         <cfset local.structKeySort = StructToSorted(local.myStruct, "text", "asc")>
-        <cfdump  var="#local.structKeySort#">
+        <cfset local.myStruct["key"] = local.structKeySort>
 <!---  count sort        --->
         <cfset local.structCountSorted=structNew("ordered")>
         <cfset local.arraySorted = structSort(structKeySort, "numeric", "desc")>
-        <cfdump  var="#local.arraySorted#">
         <cfloop array="#local.arraySorted#" item="item">
             <cfset local.structCountSorted[item] = myStruct[item]>
-        </cfloop>   
+        </cfloop>  
+         <cfset local.myStruct["count"] = local.structCountSorted> 
    <!--- Length sort        --->     
         <cfset local.limit=3>
         <cfset local.lengthSortArray = []>
@@ -48,19 +49,34 @@
                 <cfset arrayAppend(local.lengthSortArray, item) >
             </cfif>
         </cfloop>
-        <cfdump  var="#local.lengthSortArray#">
         <cfset local.start = 1>
         <cfset local.length = arrayLen(local.lengthSortArray)>
-        <cfloop array="#local.lengthSortArray#" from="#local.start#" to="#local.length#" index="i">
-            <cfloop array="#local.lengthSortArray#" from="#local.start + 1#" to="#local.length#" index="j">
-                    <cfif Len(local.lengthSortArray[i]) LT Len(local.lengthSortArray[j]) >
-                        <cfset local.temp = local.lengthSortArray[i]>
-                        <cfset local.lengthSortArray[i]=local.lengthSortArray[j]>
-                        <cfset local.lengthSortArray[j]=local.temp>
-                    </cfif>
+         <cfloop  from="#local.start#" to="#local.length#" index="i">
+            <cfloop  from="#i + 1#" to="#local.length#" index="j">
+                <cfif Len(local.lengthSortArray[i]) LT Len(local.lengthSortArray[j]) >
+                    <cfset local.temp = local.lengthSortArray[i]>
+                    <cfset local.lengthSortArray[i]=local.lengthSortArray[j]>
+                    <cfset local.lengthSortArray[j]=local.temp>
+                </cfif>
             </cfloop>
         </cfloop>
-        <cfdump  var="#local.lengthSortArray#">
+        <cfset local.structLengthSort = structNew("ordered")>
+        <cfloop array="#local.lengthSortArray#" index="index">
+            <cfset local.structLengthSort[index] = local.structCountSorted[index]>
+        </cfloop>
+        <cfset  local.mystruct["length"] = local.structLengthSort>
         <cfreturn local.myStruct>
    </cffunction>
+<!--- Task-3 Function --->
+    <cffunction  name="sizeOfText" returntype="struct">
+        <cfargument  name="textInput" type="string" required="true">
+        <cfset local.myStruct = structNew()>
+        <cfloop list="#arguments.textInput#" item="item" delimiters=" .">
+            <cfif Not structKeyExists(local.myStruct, "#item#")>
+                <cfset local.myStruct[#item#] = 0>
+            </cfif>
+            <cfset  local.myStruct[#item#]= local.myStruct[#item#] + 1>
+        </cfloop>
+        <cfreturn local.myStruct>
+    </cffunction>
 </cfcomponent> 

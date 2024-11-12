@@ -1,9 +1,11 @@
 <cfcomponent>
     <cffunction  name="fnCheck" returnType="any">
     <cfset local.c = 1>
-        <cfloop  index="i" from="1" to="3">
+    <cfset local.start = 1>
+    <cfset local.end = 3>
+        <cfloop  index="i" from="#local.start#" to="#local.end#">
             <cfset local.k = 0>
-            <cfloop index="j" from="1" to="3">
+            <cfloop index="j" from="#local.start#" to="#local.end#">
                 <cfset local.arr[c] = i+(3*local.k)>
                 <cfset local.c++>
                 <cfset local.k++>
