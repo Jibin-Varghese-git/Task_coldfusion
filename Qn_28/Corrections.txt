@@ -1,0 +1,13 @@
+1)Add ajax to all logouts
+2)Check session in application.cfc and should redirect to login page
+3)Normalization  in roles should add role id
+4)Admin should see only the pages that they have added
+5)Add   _ceatedBy this as columns 
+  	_ceatedOn
+  	_updatedOn
+  	_updatedBy
+6)page name should not be repeated
+7)Password should be encrypted using one way encryption
+8)Change user id form int to uuid
+9)User name sould not contain space
+10)Confirmation when logout or delete

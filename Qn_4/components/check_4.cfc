@@ -1,27 +1,31 @@
 <cfcomponent>
     <cffunction  name="fnCheck" returnType="any">
         <cfset local.todayDate = now()>
-        <cfdump  var="Today Date : #local.todayDate#"><br>
-        <cfset monthNum =  month(todayDate)>
-        <cfset monthString = monthAsString(monthNum)>
-        <cfdump  var="Month in num:#monthNum#"><br>
-        <cfdump  var="Month in alphabet:#monthString#"><br>
+        <cfset local.result["today"] = dateFormat(local.todayDate,"dd-mm-yyyy")>
+        <cfset local.monthNum =  month(todayDate)>
+        <cfset local.monthString = monthAsString(monthNum)>
+        <cfset local.result["monthNum"] = local.monthNum>
+       <cfset local.result["monthString" ] = local.monthString>
 <!---   Last Friday    --->
-        <cfset dayofweekToday = dayOfWeek(todayDate)>
-        <cfset fridayDiff=(6-dayofweekToday)-7>
-        <cfdump  var="Last friday is #dateAdd("d",fridayDiff,todayDate)#"><br>
+        <cfset local.dayofweekToday = dayOfWeek(todayDate)>
+        <cfset local.fridayDiff=(6-local.dayofweekToday)-7>
+        <cfset local.lastFriday = dateAdd("d",local.fridayDiff,local.todayDate)>
+        <cfset local.lastFriday= dateFormat(local.lastFriday,"dd-mm-yyyy")>
+        <cfset local.result["lastFriday"] = local.lastFriday>
 <!---  Last day in month      --->
-        <cfset DaysInMonth = daysInMonth(todayDate)>
-        <cfset LastDayMonth = now()>
-        <cfset LastDayMonth = LastDayMonth.setDay(DaysInMonth)>
-        <cfdump  var="Last Day in Month:#dateFormat(LastDayMonth,"eeee") #"><br>
+        <cfset local.DaysInMonth = daysInMonth(local.todayDate)>
+        <cfset local.LastDayMonth = now()>
+        <cfset local.LastDayMonth = local.LastDayMonth.setDay(local.DaysInMonth)>
+        <cfset local.result["lastDaymonth"] = dateFormat(local.LastDayMonth,"eeee")>
 <!---  Last 5 Days    --->
-        <cfset diff =-5>
-        <cfloop  index="i" from="1" to="5">
-            <cfset dateadd = dateAdd("d",diff,todayDate)>
-            <cfset arr[i] = dateFormat(dateadd,"dd-mm-yyyy-eeee")>
-             <cfdump  var="#arr[i]#"><br>
-             <cfset diff++>
+        <cfset local.diff =-5>
+        <cfset local.start = 1>
+        <cfset local.end = 5>
+        <cfloop  index="i" from="#local.start#" to="#local.end#">
+                <cfset local.arr[i] = dateAdd("d",local.diff,local.todayDate)>
+                <cfset diff++>
         </cfloop>
+        <cfset local.result["lastFiveDays"] = local.arr>
+        <cfreturn local.result>
     </cffunction>
 </cfcomponent>

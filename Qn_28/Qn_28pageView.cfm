@@ -1,13 +1,11 @@
 <cfapplication name="app" sessionmanagement="yes">
-    <html>
-
+<html>
     <head>
         <title>>Question-28(View Page)</title>
         <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
-
     <body class="p-5">
         <cfif NOT structKeyExists(session, "structUserLogin")>
             <cflocation url="Qn_28Login.cfm">
@@ -85,4 +83,4 @@
         <script src="js/accordion.js"></script>
     </body>
 
-    </html>
+</html>
