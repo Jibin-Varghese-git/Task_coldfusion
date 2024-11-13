@@ -17,9 +17,6 @@
             </div>
         </form>
         <div>
-            <cfif NOT structKeyExists(session, "structUserLogin")>
-                <cflocation  url="Qn_28Login.cfm">
-            </cfif> 
             <cfif structKeyExists(form, "submit")>
                 <cfset local.newObj = createObject("component","components.Qn_28")>
                 <cfset local.result = local.newObj.pageInput(form.pageTitle,form.pageDesc)>

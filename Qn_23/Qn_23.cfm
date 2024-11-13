@@ -20,7 +20,7 @@
                     </header>
 
                     <div class="content-questions">
-                        <div class="qn1-div p-3">
+                        <div class="qn1-div p-3 w-75" id="qn1-div">
                             <label class="qns-label fw-bold">Which position are you applying for?</label>
                             <span class="text-danger fw-bold">*</span><br>
                             <select class="qn1-select" name="designation" id="designation">
@@ -33,33 +33,33 @@
                             <span id="errorDesignation" class="text-danger"></span>
                         </div>
 
-                        <div class="qn1-div p-3 w-75">
+                        <div class="qn2-div p-3 w-75">
                             <label class="qns-label fw-bold">Are you willing to relocate?</label>
                              <span class="text-danger fw-bold">*</span><br>
                             <input type="radio" value="Yes" name="locateOption" checked><label class="ms-2">Yes</label><br>
                             <input type="radio" value="No" name="locateOption"><label class="ms-2">No</label>
                         </div>
 
-                        <div class="qn2-div p-3">
+                        <div class="qn3-div p-3 w-75" id="qn3-div">
                             <label class="qns-label fw-bold mb-2">When can You start ?</label>
                              <span class="text-danger fw-bold">*</span><br>
                             <input type="date"  name="startDate" id="startDate"><br>
                             <span id="errorStartDate" class="text-danger"></span>
                         </div>
 
-                        <div class="qn3-div p-3">
+                        <div class="qn4-div p-3 w-75">
                             <label class="qns-label fw-bold mb-2">Portfolio Web Site</label>
                              <span class="text-danger fw-bold">*</span><br>
                             <input class="w-50" type="text" value="http://"  name="webSite" id="webSite"><br>
                             <span id="errorWebSite" class="text-danger"></span>
                         </div>
 
-                        <div class="qn4-div p-3">
+                        <div class="qn5-div p-3 w-75">
                             <label class="qns-label fw-bold mb-2">Attach a Copy of Your Resume</label><br>
                             <input class="w-50" type="file"   name="userResume">
                         </div>
 
-                        <div class="qn5-div p-3">
+                        <div class="qn6-div p-3 ">
                             <label class="qns-label fw-bold mb-2">Salary</label><br>
                             <label class="me-2">$</label><input class="salaryDollar" type="text" id="salaryDollar" name="salaryDollar"><span class="mx-2">.</span><input class="salaryCent" type="text" id="salaryCent" name="salaryCent"><br>
                             <span id="errorSalary" class="text-danger"></span>
@@ -68,7 +68,7 @@
                     <div class="contactInfo p-2">
                         <h6>Your contact Information</h6>
 
-                        <div class="userName p-3">
+                        <div class="userName p-3 w-75" id="userName">
                             <label class="qns-label fw-bold mb-2">Name</label>
                              <span class="text-danger fw-bold">*</span><br>
                             <input type="text" name="fname" id="fname" class="fname me-2"><input type="text" name="lname" id="lname" class="lname"><br>
@@ -76,14 +76,14 @@
                             <span id="errorUserName" class="text-danger"></span>
                         </div>
 
-                        <div class="userEmailAddress p-3">
+                        <div class="userEmailAddress p-3 w-75 mt-1" id="userEmailAddress">
                             <label class="qns-label fw-bold mb-2">Email Address</label>
                             <span class="text-danger fw-bold">*</span><br>
                             <input type="text" name="userEmail" id="userEmail" class="userEmail"><br>
                             <span id="errorUserMail" class="text-danger"></span>
                         </div>
 
-                        <div class="userPhoneNo p-3">
+                        <div class="userPhoneNo p-3 w-75 mt-1" id="userPhoneNo">
                             <label class="qns-label fw-bold mb-2">Phone</label>
                             <span class="text-danger fw-bold">*</span><br>
                             <input name="phn1" type="text" id="phn1" size="3" class="required">

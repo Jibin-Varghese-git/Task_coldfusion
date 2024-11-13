@@ -11,9 +11,9 @@
                 <input type="text" name="userName" id="userName" class="m-2" placeholder="Username"><br>
                 <span class="text-danger" id="errorUsername"></span>
                 <input type="password" name="pass1" id="pass1" class="m-2" placeholder="Password">
-                 <span class="text-danger" id="errorPass1"></span>
+                <span class="text-danger" id="errorPass1"></span>
                 <input type="password" name="pass2" id="pass2" class="m-2" placeholder="Confirm Password">
-                 <span class="text-danger" id="errorPass2"></span>
+                <span class="text-danger" id="errorPass2"></span>
                 <select class="m-2" name="role">
                     <option value="admin">Admin</option>
                     <option value="editor">Editor</option>
