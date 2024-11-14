@@ -1,3 +1,24 @@
 body{
-    background-color: #c4fdf8;
+    background-color: #def7f5;
+}
+
+header{
+    background-color: #dbe2e2;
+    height: 7vh;
+}
+
+.pageContainer{
+    background-color: rgb(201, 227, 250);
+}
+
+.editBtn
+{
+    float: inline-end;
+    font-size: 15px;
+}
+
+.deleteBtn
+{
+    float: inline-end;
+    font-size: 15px;
 }
