@@ -10,7 +10,7 @@
                 <header class="w-100">
                     <input type="submit" name="logout" value="Logout" onclick="funLogout()" class="bg-danger text-white float-end">
                 </header>
-                <a href="">
+                <a href="Viewpage.cfm">
                     <input type="button" class="btn bg-black text-white m-2" value="View Page">
                 </a>
             </div>

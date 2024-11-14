@@ -78,16 +78,15 @@ function signupVal(event)
 
 function funLogout()
 {
-    alert("hi")
     if(confirm("Are you sure You want to logout?") == true)
     {
         $.ajax({
-            type:"POST",
+            type:"GET",
             url:"components/pageQn.cfc?method=logout",
             success:function(result){
                 if(result)
                 {
-                    alert("logout succes")
+                    location.reload();
                 }
                 else
                 {
@@ -98,3 +97,28 @@ function funLogout()
     }
    
 }
+
+function funDelete(pageId)
+{
+    if(confirm("Do you want to delete this page?"))
+    {
+        $.ajax({
+            type:"POST",
+            url:"components/pageQn.cfc?method=deletePage",
+            data:{pageId : pageId.value},
+            success:function(result){
+                if(result)
+                {
+                    location.reload();
+                }
+                else
+                {
+                   alert("Delete error")
+                }
+            }
+        });
+    }
+   
+}
+
+
